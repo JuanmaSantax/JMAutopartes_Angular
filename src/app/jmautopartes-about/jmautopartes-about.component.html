@@ -1,0 +1,25 @@
+
+<div [ngClass]="getPageClass()">
+  <h1>{{ getTitle() }}</h1>
+
+  <div>
+    <button (click)="selectOption(1)">¿Quienes somos?</button>
+    <div *ngIf="selectedOption === 1" class="content">
+      <p class="texto-about">No somos, Soy un simple desarrollador al que le gusta el front aunque no se note mucho por la estetica de la pagina :p. <img src="assets/img/javito.jpeg" alt="" height="100px" width="100px"> </p>
+    </div>
+  </div>
+
+  <div>
+    <button (click)="selectOption(2)">¿Cual es el proposito de nuestra Web?</button>
+    <div *ngIf="selectedOption === 2" class="content">
+      <p class="texto-about">La intencion de la pagina es facilitar el comercio entre repuestero y cliente... La idea esta basada en el programa que usan los que atienden los negocios de repuestos automotor pero con una vuelta de rosca como para que la pueda manejar el cliente en caso de hacer en una compra grande y de autoservicio, muy como se hace en EE.UU </p>
+    </div>
+  </div>
+
+  <div>
+    <button (click)="selectOption(3)">¿Como funcionan los impuestos?</button>
+    <div *ngIf="selectedOption === 3" class="content">
+      <p class="texto-about">Por la ley de nuestro pais todos los productos que vengan del exterior, es decir que sean importados, se les asigna un 35% extra del costo por el impuesto Arancel. Este costo se asigna automaticamente en la boleta </p>
+    </div>
+  </div>
+</div>

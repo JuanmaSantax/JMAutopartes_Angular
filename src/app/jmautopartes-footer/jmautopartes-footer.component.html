@@ -1,0 +1,24 @@
+<footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section about">
+        <h2>Sobre Nosotros</h2>
+        <p>Somos {{title}} una empresa dedicada a la venta de autopartes de alta calidad. Nuestro objetivo es ofrecer los mejores productos a nuestros clientes.</p>
+      </div>
+      <div class="footer-section links">
+        <h2>Enlaces Rápidos</h2>
+        <ul>
+          <li><a  [routerLink]="['/']">Inicio</a></li>
+          <li><a  [routerLink]="['/carrito']">carrito</a></li>
+          <li><a  [routerLink]="['/about']">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-section contact">
+        <h2>Contacto</h2>
+        <p>Email: info"&#64;"autopartes.com</p>
+        <p>Teléfono: +123 456 7890</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2024 {{title}} | Todos los derechos reservados.
+    </div>
+  </footer>

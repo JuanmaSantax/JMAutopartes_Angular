@@ -1,0 +1,17 @@
+<div class="shopping-cart">
+  <h2>Boleta dinamica</h2>
+  <div class="cart-items">
+    <div class="cart-item">
+      <ul>
+        <li *ngFor="let repuesto of cartShop$ | async">
+          {{repuesto.name}}: {{repuesto.quantity}} = ${{repuesto.quantity * repuesto.price * impuestoCalculator(repuesto.cod)}}
+          <button (click)="removeFromCart(repuesto)">X</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="cart-total">
+    <h3>Total: $<span id="total-price">{{ totalPrice$ | async }}</span></h3>
+  </div>
+  <button class="checkout-btn" (click)="clearCart()">Imprimir boleta</button>
+</div>

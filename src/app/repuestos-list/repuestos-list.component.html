@@ -1,0 +1,51 @@
+<!-- Para generar una tabla de forma rapida: table>thead>tr>th>*4-->
+ <h1>Lista de repuestos</h1>
+<table class="tabla">
+    <thead class="thead">
+        <tr class="tr-thead text-center">
+            <th>Nombre</th>
+            <th>Codigo producto</th>
+            <th>Foto</th>
+            <th>Marca auto</th>
+            <th>Año auto</th>
+            <th>Stock</th>
+            <th>Precio</th>
+            <th>Nacionalidad</th>
+            <th>Inpuesto</th>
+            <th>Cantidad a comprar</th>
+
+        </tr>
+    </thead>
+    <tbody class="tbody">  
+       @for (repuesto of repuestos; track repuesto.cod){
+        <tr class="tr-tabla">
+            <td>{{repuesto.name}}</td>
+            <td>{{repuesto.cod}}</td>
+            <td><img class="img-table"  [src]="repuesto.img" alt="" ></td>
+            <td>{{repuesto.car}}</td>
+            <td>{{repuesto.year}}</td>
+            @if(repuesto.stock > 0){
+                <td>{{repuesto.stock}}</td>
+            }@else{
+                <td>No hay stock</td>
+            }
+            <td>{{repuesto.price | currency}}</td>
+            <td>{{repuesto.nationality}}</td>
+            @if(repuesto.nationality != 'Argentina'){
+                <td class="imported"><span class="span">+ 35% Arancel</span></td>
+            }@else{
+                <td class="nacionalItem">---</td>
+            }  
+            <td class="quantity-control">
+                <app-input-integer  [(quantity)]="repuesto.quantity" [max]="repuesto.stock" (quantityLimit)="quantityLimit($event)"></app-input-integer>
+                <button *ngIf="repuesto.stock > 0" class="btn-table"  (click)="addToCart(repuesto)"  >Añadir a boleta</button>
+            </td>        
+        </tr>
+       }@empty{
+        <tr>
+            <td class="imported">NO hay repuestos para mostrar </td>
+        </tr>
+       }
+    </tbody>
+</table>
+
